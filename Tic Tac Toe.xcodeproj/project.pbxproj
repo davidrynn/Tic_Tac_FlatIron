@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		223485561AF3BEB70045CFB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223485551AF3BEB70045CFB8 /* main.m */; };
+		2234856A1AF67B3D0045CFB8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 223485691AF67B3D0045CFB8 /* Player.m */; };
+		2234856D1AF67EF40045CFB8 /* Inputs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234856C1AF67EF40045CFB8 /* Inputs.m */; };
+		223485701AF696E40045CFB8 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234856F1AF696E40045CFB8 /* Game.m */; };
+		223485731AF696F90045CFB8 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 223485721AF696F90045CFB8 /* Grid.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,14 @@
 /* Begin PBXFileReference section */
 		223485521AF3BEB70045CFB8 /* Tic Tac Toe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tic Tac Toe"; sourceTree = BUILT_PRODUCTS_DIR; };
 		223485551AF3BEB70045CFB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		223485681AF67B3D0045CFB8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		223485691AF67B3D0045CFB8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2234856B1AF67EF40045CFB8 /* Inputs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inputs.h; sourceTree = "<group>"; };
+		2234856C1AF67EF40045CFB8 /* Inputs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inputs.m; sourceTree = "<group>"; };
+		2234856E1AF696E40045CFB8 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		2234856F1AF696E40045CFB8 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		223485711AF696F90045CFB8 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		223485721AF696F90045CFB8 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +69,15 @@
 		223485541AF3BEB70045CFB8 /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				223485681AF67B3D0045CFB8 /* Player.h */,
+				223485691AF67B3D0045CFB8 /* Player.m */,
 				223485551AF3BEB70045CFB8 /* main.m */,
+				2234856B1AF67EF40045CFB8 /* Inputs.h */,
+				2234856C1AF67EF40045CFB8 /* Inputs.m */,
+				2234856E1AF696E40045CFB8 /* Game.h */,
+				2234856F1AF696E40045CFB8 /* Game.m */,
+				223485711AF696F90045CFB8 /* Grid.h */,
+				223485721AF696F90045CFB8 /* Grid.m */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";
@@ -118,7 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223485731AF696F90045CFB8 /* Grid.m in Sources */,
+				2234856D1AF67EF40045CFB8 /* Inputs.m in Sources */,
+				2234856A1AF67B3D0045CFB8 /* Player.m in Sources */,
 				223485561AF3BEB70045CFB8 /* main.m in Sources */,
+				223485701AF696E40045CFB8 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +259,7 @@
 				2234855B1AF3BEB70045CFB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
