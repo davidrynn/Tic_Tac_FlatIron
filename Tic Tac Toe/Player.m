@@ -8,6 +8,7 @@
 
 #import "Player.h"
 #import "Helper.h"
+#include <stdlib.h>
 
 @implementation Player
 
@@ -18,6 +19,8 @@
         
         NSLog(@"Please type your name");
         _name = [nameInput getInput];
+        [self letterChooser];
+        
     }
     return self;
 }
@@ -34,14 +37,14 @@
 
 -(void) letterChooser {
     int random;
-    random = arc4random_uniform(10);
-    if(random>5){
+    random = arc4random_uniform(9);
+    if(random>4){
         _letter = @"X";
     }
     else {
         _letter = @"O";
     }
-    NSLog(@"Hi %@, You will be playing %@'s", _name, _letter);
+    NSLog(@"Hi %@, You will be playing %@'s.  X's go first.", _name, _letter);
 
 }
 @end

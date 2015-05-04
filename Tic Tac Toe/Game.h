@@ -10,5 +10,9 @@
 
 @interface Game : NSObject
 @property NSString *moveChoice;
+@property int arrayChoice;
+@property BOOL gameWon;
+-(void) chooseMove : (NSString *) letter ;
+-(void) move : (NSArray *) playGrid;
 
 @end

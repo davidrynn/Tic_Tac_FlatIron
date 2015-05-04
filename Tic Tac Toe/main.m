@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 #import "Grid.h"
+#import "Game.h"
 
 //declarations
 //NSString *name();
@@ -22,11 +23,24 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         intro();
         Player *player1 = [[Player alloc] initWithName];
-        NSLog(@"Hi %@", player1.name);
-        Grid *etgrid1 =[[Grid alloc] initGrid];
-//        one working part -- first glimpses of array
-        NSArray *testArray = @[@1, @2, @4, @5, @6];
-        NSLog(@"%@", [testArray componentsJoinedByString:@"|"]);
+        Grid *grid1 =[[Grid alloc] init];
+        Game *game1 = [[Game alloc] init];
+        // Printout initial grid
+        grid1.gridArray = [ NSMutableArray arrayWithObjects:
+                      @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil
+                           ];
+        [grid1 printGrid];
+        int i = 0;
+        game1.gameWon = NO;
+        while (!game1.gameWon || (i <5)){
+        [game1 chooseMove:player1.letter];
+
+            [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
+            [grid1 printGrid];
+            i++;
+            NSLog(@"Game won?: %hhd", game1.gameWon);
+        }
+
     }
     return 0;
 }

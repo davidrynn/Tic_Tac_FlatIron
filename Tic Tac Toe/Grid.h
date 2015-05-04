@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Grid : NSObject
-@property NSArray *gridArray;
+@property NSMutableArray *gridArray;
+@property NSMutableArray *arrayView;
 @property NSString *arrayString;
 
 //extern char grid[5][5];
 
--(id)initGrid;
+//-(id)initGrid;
 -(NSString *) gridToString;
--(void) printArray;
+-(void) printGrid;
 @end
