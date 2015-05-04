@@ -7,14 +7,14 @@
 //
 
 #import "Player.h"
-#import "Inputs.h"
+#import "Helper.h"
 
 @implementation Player
 
 - (id)initWithName {
     self = [super init];
     if (self) {
-        Inputs *nameInput =[[Inputs alloc] init];
+        Helper *nameInput =[[Helper alloc] init];
         
         NSLog(@"Please type your name");
         _name = [nameInput getInput];
@@ -24,7 +24,7 @@
 
 -(void) inputName{
 
-    Inputs *nameInput =[[Inputs alloc] init];
+    Helper *nameInput =[[Helper alloc] init];
 
     NSLog(@"Please type your name");
     _name = [nameInput getInput];

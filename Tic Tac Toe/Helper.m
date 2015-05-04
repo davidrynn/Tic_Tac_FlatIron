@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 David Rynn. All rights reserved.
 //
 
-#import "Inputs.h"
+#import "Helper.h"
 
-@implementation Inputs
+@implementation Helper
 
 
 -(NSString *) getInput {

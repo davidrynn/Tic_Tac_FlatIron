@@ -13,7 +13,7 @@
 @property NSString *letter;
 
 
-- (id)initWithName;
+-(id)initWithName;
 -(void) inputName;
 -(void) letterChooser;
 

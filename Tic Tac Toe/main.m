@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #import <Foundation/Foundation.h>
 #import "Player.h"
+#import "Grid.h"
 
 //declarations
 //NSString *name();
@@ -22,6 +23,7 @@ int main(int argc, const char * argv[]) {
         intro();
         Player *player1 = [[Player alloc] initWithName];
         NSLog(@"Hi %@", player1.name);
+        Grid *etgrid1 =[[Grid alloc] initGrid];
 //        one working part -- first glimpses of array
         NSArray *testArray = @[@1, @2, @4, @5, @6];
         NSLog(@"%@", [testArray componentsJoinedByString:@"|"]);

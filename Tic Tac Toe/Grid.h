@@ -10,6 +10,11 @@
 
 @interface Grid : NSObject
 @property NSArray *gridArray;
-@property NSString *arrayPrint;
+@property NSString *arrayString;
 
+//extern char grid[5][5];
+
+-(id)initGrid;
+-(NSString *) gridToString;
+-(void) printArray;
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Inputs : NSObject
+@interface Helper : NSObject
 - (NSString *)getInput;
 
 @end
