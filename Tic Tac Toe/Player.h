@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//Player class just stores player properties and whether goes first
+
 @interface Player : NSObject
 @property NSString *name;
 @property NSString *letter;

@@ -8,7 +8,6 @@
 
 #include <stdlib.h>
 #import "Game.h"
-#import "Player.h"
 #import "Helper.h"
 
 @implementation Game
@@ -42,6 +41,9 @@
 
 }
 -(void)checkWin : (NSArray *) playGrid {
+    
+    //ideally would like to develop rules by mathematically summing the grid locations for each player
+    //and figuring out which numbers == win.  If I understood NS Dictionary maybe I could do it that way.
 
     bool rowWin =   ((playGrid[0]==playGrid[1]) && (playGrid[1]==playGrid[2])) ||
                     ((playGrid[3]==playGrid[4]) && (playGrid[4]==playGrid[5])) ||
@@ -57,21 +59,123 @@
     
     if(rowWin || diagWin || colWin) {
         self.gameWon = YES;
+        NSLog (@"GAME WON!! MOM, I WANT A PEPSI!");
     }
 
 }
 
 -(void) compMove : (NSString *) compLetter : (NSArray *) playGrid {
+    //method for comoputer AI
+    NSString *playerLetter;
+    if ([compLetter isEqualToString:@"X"]) {
+        playerLetter=@"O";
+    } else {
+        playerLetter=@"X";
+    }
 
     NSLog(@"compmove");
     
-//    if([playGrid containsObject:@"X"]){
-//        NSLog(@"You played X");
-//    }
-//    else {
-//        NSLog(@"You didn't play x?");
-//    }
-//    
+    //********** check to see if close to win
+    //First see if opponent is about to win || computer is about to win then block/ finish;
+    
+    //Check corners first
+    if (
+        //cell 0
+        ![playGrid containsObject:playerLetter] ||
+        (playGrid[3]==playGrid[6]) ||
+        (playGrid[4]==playGrid[8]) ||
+        (playGrid[1]==playGrid[2])
+        )
+        {
+        //make first move or block move in first cell
+            _moveChoice = @"1";
+        }
+    else if (
+        //cell 2
+        (playGrid[0]==playGrid[1]) ||
+        (playGrid[5]==playGrid[8]) ||
+        (playGrid[4]==playGrid[6])
+    )
+        {
+            _moveChoice = @"3";
+        }
+    else if (
+             //cell 6
+             (playGrid[0]==playGrid[3]) ||
+             (playGrid[2]==playGrid[4]) ||
+             (playGrid[7]==playGrid[8])
+             )
+    {
+        _moveChoice = @"7";
+    }
+    else if (
+             //cell 8
+             (playGrid[0]==playGrid[4]) ||
+             (playGrid[2]==playGrid[5]) ||
+             (playGrid[6]==playGrid[7])
+             )
+    {
+        _moveChoice = @"9";
+    }
+    
+    // check middle cells
+    else if (
+             //cell 1
+             (playGrid[0]==playGrid[2]) ||
+             (playGrid[4]==playGrid[7])
+             )
+    {
+        _moveChoice = @"2";
+    }
+    else if (
+             //cell 3
+             (playGrid[0]==playGrid[6]) ||
+             (playGrid[4]==playGrid[5])
+             )
+    {
+        _moveChoice = @"4";
+    }
+    else if (
+             //cell 5
+             (playGrid[8]==playGrid[2]) ||
+             (playGrid[4]==playGrid[3])
+             )
+    {
+        _moveChoice = @"6";
+    }
+    else if (
+             //cell 7
+             (playGrid[0]==playGrid[2]) ||
+             (playGrid[4]==playGrid[7])
+             )
+    {
+        _moveChoice = @"8";
+    }
+    
+ 
+    
+// mext of middle cell is empty take it.
+        
+     else if ([playGrid[4] isEqual:@"5"]){
+            _moveChoice = @"5";
+        }
+//otherwise move to available corner
+    else if ([playGrid[0] isEqual:@"1"]){
+            _moveChoice = @"1";
+        }
+    else if ([playGrid[2] isEqual:@"3"]){
+        _moveChoice = @"3";
+    }
+    else if ([playGrid[6] isEqual:@"7"]){
+        _moveChoice = @"7";
+    } else {
+        
+        // last possible choice ... I think?
+        _moveChoice =@"9";
+    }
+    
+    
+  
 
 
 
