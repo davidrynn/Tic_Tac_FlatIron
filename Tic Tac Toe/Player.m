@@ -19,7 +19,7 @@
         
         NSLog(@"Please type your name");
         _name = [nameInput getInput];
-        [self letterChooser];
+//        [self letterChooser];
         
     }
     return self;

@@ -73,7 +73,7 @@
         playerLetter=@"X";
     }
 
-    NSLog(@"compmove");
+    NSLog(@"Computer's move");
     
     //********** check to see if close to win
     //First see if opponent is about to win || computer is about to win then block/ finish;
@@ -81,10 +81,11 @@
     //Check corners first
     if (
         //cell 0
+        [playGrid[0] isEqualToString:@"1"] && (
         ![playGrid containsObject:playerLetter] ||
         (playGrid[3]==playGrid[6]) ||
         (playGrid[4]==playGrid[8]) ||
-        (playGrid[1]==playGrid[2])
+        (playGrid[1]==playGrid[2]) )
         )
         {
         //make first move or block move in first cell
@@ -92,27 +93,32 @@
         }
     else if (
         //cell 2
+        [playGrid[2] isEqualToString:@"3"] && (
+
         (playGrid[0]==playGrid[1]) ||
         (playGrid[5]==playGrid[8]) ||
-        (playGrid[4]==playGrid[6])
+        (playGrid[4]==playGrid[6]) )
     )
         {
             _moveChoice = @"3";
         }
     else if (
              //cell 6
+             [playGrid[6] isEqualToString:@"7"] && (
+        
              (playGrid[0]==playGrid[3]) ||
              (playGrid[2]==playGrid[4]) ||
-             (playGrid[7]==playGrid[8])
+             (playGrid[7]==playGrid[8]) )
              )
     {
         _moveChoice = @"7";
     }
     else if (
              //cell 8
+             [playGrid[8] isEqualToString:@"9"] && (
              (playGrid[0]==playGrid[4]) ||
              (playGrid[2]==playGrid[5]) ||
-             (playGrid[6]==playGrid[7])
+             (playGrid[6]==playGrid[7]) )
              )
     {
         _moveChoice = @"9";
@@ -121,32 +127,36 @@
     // check middle cells
     else if (
              //cell 1
+             [playGrid[1] isEqualToString:@"2"] && (
              (playGrid[0]==playGrid[2]) ||
-             (playGrid[4]==playGrid[7])
+             (playGrid[4]==playGrid[7]) )
              )
     {
         _moveChoice = @"2";
     }
     else if (
              //cell 3
+             [playGrid[3] isEqualToString:@"4"] && (
              (playGrid[0]==playGrid[6]) ||
-             (playGrid[4]==playGrid[5])
+             (playGrid[4]==playGrid[5]) )
              )
     {
         _moveChoice = @"4";
     }
     else if (
              //cell 5
+             [playGrid[5] isEqualToString:@"6"] && (
              (playGrid[8]==playGrid[2]) ||
-             (playGrid[4]==playGrid[3])
+             (playGrid[4]==playGrid[3]) )
              )
     {
         _moveChoice = @"6";
     }
     else if (
              //cell 7
+             [playGrid[7] isEqualToString:@"8"] && (
              (playGrid[0]==playGrid[2]) ||
-             (playGrid[4]==playGrid[7])
+             (playGrid[4]==playGrid[7]) )
              )
     {
         _moveChoice = @"8";

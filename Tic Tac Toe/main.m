@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 David Rynn. All rights reserved.
 //
 
+//TO DO:  Add two player functionality
+//          Fix AI
+//          
+
 #include <stdlib.h>
 #import <Foundation/Foundation.h>
 #import "Player.h"
@@ -25,25 +29,42 @@ int main(int argc, const char * argv[]) {
 //intro() == brief description of game
         intro();
 
-//Player class just stores player properties and whether goes first
+//Player class just stores players' properties and whether goes first
         Player *player1 = [[Player alloc] initWithName];
+
+//Grid class stores game array and prints it onto grid -- sort of View
         Grid *grid1 =[[Grid alloc] init];
+        
+//Game class has the mechanics of the game including AI and winning conditions
         Game *game1 = [[Game alloc] init];
+        
+//Hellper class just is an input GET to help other classes
         Helper *helper = [[Helper alloc] init];
         
 //Set initial booleans for game play and whether game is won:
-        BOOL play = YES;
-        game1.gameWon = NO;
         
-        // Printout initial grid -note, this can't be a good idea to wait for this to fill array.
+        BOOL play = YES;
+        
+//start of play loop
+        while (play) {
+        
+
+        
+        game1.gameWon = NO;
+        int gameCounter = 1;
+            
+        [player1 letterChooser ];
+        
+        // fill initial grid array-note, this can't be a good idea to wait for this to fill array.
         grid1.gridArray = [ NSMutableArray arrayWithObjects:
                       @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil
                            ];
+        //print grid to console
         [grid1 printGrid];
 
-
         
-        while (!game1.gameWon){
+        while ((!game1.gameWon) && (gameCounter<7)){
+            NSLog(@"%d:", gameCounter);
             if (player1.goesFirst) {
             
                 [game1 chooseMove:player1.letter : grid1.gridArray];
@@ -68,21 +89,18 @@ int main(int argc, const char * argv[]) {
                 [grid1 printGrid];
                 [game1 checkWin:grid1.gridArray];
             }
-            //old code
-//            [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
-//            [grid1 printGrid];
-//            i++;
-//            [game1 checkWin:grid1.gridArray];
-//            NSLog(@"Game won?: %hhd, i?: %d", game1.gameWon, i);
+            gameCounter++;
+            
            
         }
+
+//Check if want's to play again
         NSLog(@"Would you like to play again?(Y/N)");
         NSString *playAgain = helper.getInput;
-        NSLog(@"input = %@", playAgain);
-        if([playAgain isEqualToString:@"N"] == NSOrderedSame) {
+        if(![playAgain isEqualToString:@"Y"]) {
             play = NO;
         }
-
+        }
     }
     return 0;
 }

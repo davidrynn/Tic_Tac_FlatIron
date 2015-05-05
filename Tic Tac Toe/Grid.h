@@ -16,6 +16,6 @@
 //extern char grid[5][5];
 
 //-(id)initGrid;
--(NSString *) gridToString;
+
 -(void) printGrid;
 @end

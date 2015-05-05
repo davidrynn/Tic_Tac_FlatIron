@@ -86,14 +86,9 @@
                           
                           ];
     NSString * result = [viewArray componentsJoinedByString:@""];
-    NSLog(@"\nPlease choose a position for your move based on the number in the grid (1-9):\n%@", result);
+    NSLog(@"\n%@", result);
 
 };
--(NSString *) gridToString{
-    NSString *printout;
-    
-    return printout;
-    
-};
+
 
 @end
