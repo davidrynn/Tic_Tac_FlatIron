@@ -40,11 +40,15 @@
     random = arc4random_uniform(9);
     if(random>4){
         _letter = @"X";
+        _compLetter = @"O";
+        _goesFirst = YES;
     }
     else {
         _letter = @"O";
+        _compLetter = @"X";
+        _goesFirst = NO;
     }
-    NSLog(@"Hi %@, You will be playing %@'s.  X's go first.", _name, _letter);
+    NSLog(@"Hi %@, You will be playing %@'s, the computer will be %@'s.  X's go first.", _name, _letter, _compLetter);
 
 }
 @end

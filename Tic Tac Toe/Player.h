@@ -11,6 +11,8 @@
 @interface Player : NSObject
 @property NSString *name;
 @property NSString *letter;
+@property NSString *compLetter;
+@property BOOL goesFirst;
 
 
 -(id)initWithName;
