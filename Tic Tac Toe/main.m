@@ -42,14 +42,18 @@ int main(int argc, const char * argv[]) {
         while (!game1.gameWon){
             if (player1.goesFirst) {
             
-                [game1 chooseMove:player1.letter];
-                [game1 compMove:grid1.gridArray:player1.compLetter];
+                [game1 chooseMove:player1.letter : grid1.gridArray];
+                [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
+                [grid1 printGrid];
+                [game1 checkWin:grid1.gridArray];
+                
+                [game1 compMove: player1.compLetter: grid1.gridArray];
                 
             } else
             {
                 
-                [game1 compMove:grid1.gridArray:player1.compLetter];
-                [game1 chooseMove:player1.letter];
+                [game1 compMove:player1.compLetter :grid1.gridArray];
+                [game1 chooseMove:player1.letter : grid1.gridArray];
            
             }
             [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];

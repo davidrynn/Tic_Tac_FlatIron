@@ -14,23 +14,33 @@
 @implementation Game
 
 
--(NSArray *)chooseMove : (NSArray *) grid : (NSString *) letter {
+-(void)chooseMove : (NSString *) letter : (NSArray *) playGrid {
     Helper *gameHelp = [[Helper alloc] init];
-    NSLog(@"You are %@.\nPlease choose your move (Type a number between 1 and 9):\n", letter);
+    BOOL validMove =NO;
+    //loop runs until correct input
+    while (!validMove){
+        NSLog(@"\nPlease choose your move (Type a number between 1 and 9 corresponding to the numbers in the grid):\n");
+        NSString *move = gameHelp.getInput;
+        _arrayChoice = (int)[move  integerValue]- 1;
+        // need to test whether input is 1) valid number or 2) available move
+   //     NSLog(@"At the location is: %@", [playGrid objectAtIndex:_arrayChoice]);
+        if (!(_arrayChoice>=0&&_arrayChoice<=9) ||
+            [[playGrid objectAtIndex:_arrayChoice]  isEqual: @"X"] ||
+            [[playGrid objectAtIndex:_arrayChoice]  isEqual: @"O"] )
+        
+        {
+            NSLog(@"Invalid Choice");
+            
+        } else
+        {
+            _moveChoice = move;
+            validMove = YES;
+        }
+    }
     
-    NSString *move = gameHelp.getInput;
-    grid = [grid mutableCopy];
-
-        _moveChoice = move;
-        _arrayChoice = (int)move - 1;
-    [grid replaceObjectAtIndex:_arrayChoice withObject: letter];
-    
-    return grid;
 
 
 }
-
-
 -(void)checkWin : (NSArray *) playGrid {
 
     bool rowWin =   ((playGrid[0]==playGrid[1]) && (playGrid[1]==playGrid[2])) ||
@@ -51,20 +61,20 @@
 
 }
 
--(NSArray *) compMove : (NSArray *) playGrid1 : (NSString *) compLetter{
+-(void) compMove : (NSString *) compLetter : (NSArray *) playGrid {
+
     NSLog(@"compmove");
     
-    if([playGrid1 containsObject:@"X"]){
-        NSLog(@"You played X");
-    }
-    else {NSLog(@"You didn't play x?");}
-    
-//    if ([playGrid1[0] isEqual:@"1"]) {
-//        [playGrid1 replaceObjectAtIndex:0 withObject: compLetter];
-//
+//    if([playGrid containsObject:@"X"]){
+//        NSLog(@"You played X");
 //    }
-//    else enumerate and use rules
-    return playGrid1;
+//    else {
+//        NSLog(@"You didn't play x?");
+//    }
+//    
+
+
+
 
 }
 @end
