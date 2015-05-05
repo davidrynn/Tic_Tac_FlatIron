@@ -13,8 +13,8 @@
 @property int arrayChoice;
 @property BOOL gameWon;
 @property BOOL playGame;
--(void) chooseMove : (NSString *) letter ;
--(NSArray *) compMove : (NSArray *) playGrid1: (NSString *) compLetter;
--(void) move : (NSArray *) playGrid;
+-(NSArray *)chooseMove : (NSArray *) grid : (NSString *) letter ;
+-(NSArray *)compMove : (NSArray *) playGrid1 : (NSString *) compLetter;
+-(void) checkWin : (NSArray *) playGrid;
 
 @end

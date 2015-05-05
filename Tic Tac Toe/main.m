@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
         
         BOOL play = YES;
         
-        // Printout initial grid
+        // Printout initial grid -note, this can't be a good idea to wait for this to fill array.
         grid1.gridArray = [ NSMutableArray arrayWithObjects:
                       @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil
                            ];
@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
             [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
             [grid1 printGrid];
             i++;
-            [game1 move:grid1.gridArray];
+            [game1 checkWin:grid1.gridArray];
             NSLog(@"Game won?: %hhd, i?: %d", game1.gameWon, i);
            
         }

@@ -14,17 +14,24 @@
 @implementation Game
 
 
--(void)chooseMove : (NSString *) letter {
+-(NSArray *)chooseMove : (NSArray *) grid : (NSString *) letter {
     Helper *gameHelp = [[Helper alloc] init];
     NSLog(@"You are %@.\nPlease choose your move (Type a number between 1 and 9):\n", letter);
+    
     NSString *move = gameHelp.getInput;
+    grid = [grid mutableCopy];
 
         _moveChoice = move;
         _arrayChoice = (int)move - 1;
+    [grid replaceObjectAtIndex:_arrayChoice withObject: letter];
+    
+    return grid;
 
 
 }
--(void)move : (NSArray *) playGrid {
+
+
+-(void)checkWin : (NSArray *) playGrid {
 
     bool rowWin =   ((playGrid[0]==playGrid[1]) && (playGrid[1]==playGrid[2])) ||
                     ((playGrid[3]==playGrid[4]) && (playGrid[4]==playGrid[5])) ||
@@ -45,11 +52,17 @@
 }
 
 -(NSArray *) compMove : (NSArray *) playGrid1 : (NSString *) compLetter{
+    NSLog(@"compmove");
     
-    if ([playGrid1[0] isEqual:@"1"]) {
-        [playGrid1 replaceObjectAtIndex:0 withObject: compLetter];
-
+    if([playGrid1 containsObject:@"X"]){
+        NSLog(@"You played X");
     }
+    else {NSLog(@"You didn't play x?");}
+    
+//    if ([playGrid1[0] isEqual:@"1"]) {
+//        [playGrid1 replaceObjectAtIndex:0 withObject: compLetter];
+//
+//    }
 //    else enumerate and use rules
     return playGrid1;
 

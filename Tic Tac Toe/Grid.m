@@ -29,7 +29,7 @@
     self =[super init];
     if (self) {
  
-        /* FAILED ATTEMPTS AT USING OBJ C AND C MULTIDIMENSIONAL ARRAYS
+        FAILED ATTEMPTS AT USING OBJ C AND C MULTIDIMENSIONAL ARRAYS
          NSArray *gridArray = [NSArray arrayWithObjects:
          [NSMutableArray array],
          [NSMutableArray array],
