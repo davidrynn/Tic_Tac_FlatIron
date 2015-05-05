@@ -13,9 +13,7 @@
 @property NSMutableArray *arrayView;
 @property NSString *arrayString;
 
-//extern char grid[5][5];
 
-//-(id)initGrid;
 
 -(void) printGrid;
 @end

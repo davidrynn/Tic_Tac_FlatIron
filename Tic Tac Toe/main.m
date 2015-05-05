@@ -7,8 +7,8 @@
 //
 
 //TO DO:  Add two player functionality
-//          Fix AI
-//          
+//          Clean Up/ Refactor
+//         MVC?  Pretty messy code. 
 
 #include <stdlib.h>
 #import <Foundation/Foundation.h>
@@ -56,6 +56,7 @@ int main(int argc, const char * argv[]) {
         [player1 letterChooser ];
         
         // fill initial grid array-note, this can't be a good idea to wait for this to fill array.
+        grid1.gridArray= [[NSMutableArray alloc] initWithCapacity:10];
         grid1.gridArray = [ NSMutableArray arrayWithObjects:
                       @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil
                            ];
@@ -63,19 +64,24 @@ int main(int argc, const char * argv[]) {
         [grid1 printGrid];
 
         
-        while ((!game1.gameWon) && (gameCounter<7)){
-            NSLog(@"%d:", gameCounter);
+        while ((!game1.gameWon) && (gameCounter<10)){
+            NSLog(@"Turn %d:", gameCounter);
             if (player1.goesFirst) {
             
                 [game1 chooseMove:player1.letter : grid1.gridArray];
                 [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
                 [grid1 printGrid];
                 [game1 checkWin:grid1.gridArray];
+                gameCounter ++;
                 
+                if ((!game1.gameWon) && (gameCounter<10)){
                 [game1 compMove: player1.compLetter: grid1.gridArray];
                 [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.compLetter];
                 [grid1 printGrid];
                 [game1 checkWin:grid1.gridArray];
+                gameCounter ++;
+                }
+
             } else
             {
                 
@@ -83,17 +89,23 @@ int main(int argc, const char * argv[]) {
                 [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.compLetter];
                 [grid1 printGrid];
                 [game1 checkWin:grid1.gridArray];
+                 gameCounter ++;
                 
+                if ((!game1.gameWon) && (gameCounter<10)){
                 [game1 chooseMove:player1.letter : grid1.gridArray];
                 [grid1.gridArray replaceObjectAtIndex:([game1.moveChoice integerValue]-1) withObject: player1.letter];
                 [grid1 printGrid];
                 [game1 checkWin:grid1.gridArray];
+                gameCounter ++;
+                }
             }
-            gameCounter++;
+
             
            
         }
-
+            if (!game1.gameWon) {
+                NSLog(@"Hmmm... Looks like a draw.");
+            }
 //Check if want's to play again
         NSLog(@"Would you like to play again?(Y/N)");
         NSString *playAgain = helper.getInput;

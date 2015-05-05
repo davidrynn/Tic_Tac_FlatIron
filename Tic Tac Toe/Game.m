@@ -22,7 +22,6 @@
         NSString *move = gameHelp.getInput;
         _arrayChoice = (int)[move  integerValue]- 1;
         // need to test whether input is 1) valid number or 2) available move
-   //     NSLog(@"At the location is: %@", [playGrid objectAtIndex:_arrayChoice]);
         if (!(_arrayChoice>=0&&_arrayChoice<=9) ||
             [[playGrid objectAtIndex:_arrayChoice]  isEqual: @"X"] ||
             [[playGrid objectAtIndex:_arrayChoice]  isEqual: @"O"] )
@@ -54,8 +53,8 @@
                     ((playGrid[6]==playGrid[4]) && (playGrid[4]==playGrid[2]));
 
     bool colWin =   ((playGrid[0]==playGrid[3]) && (playGrid[3]==playGrid[6])) ||
-                    ((playGrid[1]==playGrid[4]) && (playGrid[7]==playGrid[2])) ||
-                    ((playGrid[2]==playGrid[5]) && (playGrid[1]==playGrid[8]));
+                    ((playGrid[1]==playGrid[4]) && (playGrid[4]==playGrid[7])) ||
+                    ((playGrid[2]==playGrid[5]) && (playGrid[5]==playGrid[8]));
     
     if(rowWin || diagWin || colWin) {
         self.gameWon = YES;
@@ -65,7 +64,7 @@
 }
 
 -(void) compMove : (NSString *) compLetter : (NSArray *) playGrid {
-    //method for comoputer AI
+    //method for computer AI
     NSString *playerLetter;
     if ([compLetter isEqualToString:@"X"]) {
         playerLetter=@"O";
@@ -178,10 +177,23 @@
     }
     else if ([playGrid[6] isEqual:@"7"]){
         _moveChoice = @"7";
-    } else {
-        
-        // last possible choice ... I think?
+    }
+    else if ([playGrid[8] isEqual:@"9"]){
         _moveChoice =@"9";
+    }
+    
+    //then try corners
+    else if ([playGrid[1] isEqual:@"2"]){
+        _moveChoice =@"2";
+    }
+    else if ([playGrid[3] isEqual:@"4"]){
+        _moveChoice =@"4";
+    }
+    else if ([playGrid[5] isEqual:@"6"]){
+        _moveChoice =@"6";
+    }
+    else if ([playGrid[7] isEqual:@"8"]){
+        _moveChoice =@"8";
     }
     
     
